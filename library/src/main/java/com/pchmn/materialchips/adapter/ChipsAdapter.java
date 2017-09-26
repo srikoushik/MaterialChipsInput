@@ -381,8 +381,6 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             for(ChipInterface item: contactList) {
                 if(chip.getId() != null && chip.getId().equals(item.getId()))
                     return true;
-                if(chip.getLabel().equals(item.getLabel()))
-                    return true;
             }
         }
 
