@@ -77,7 +77,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             if(iterator.next().getLabel() == null)
                 iterator.remove();
         }
-        sortList(chipList);
+        //sortList(chipList);
         mOriginalList.addAll(chipList);
         mChipList.addAll(chipList);
         mFilteredList.addAll(chipList);
@@ -253,7 +253,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             mChipList.add(chip);
             mFilteredList.add(chip);
             // sort original list
-            sortList(mChipList);
+            //sortList(mChipList);
             // sort filtered list
             sortList(mFilteredList);
 
