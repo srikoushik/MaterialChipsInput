@@ -364,4 +364,11 @@ public class ChipsInput extends ScrollViewMaxHeight {
     public interface ChipValidator {
         boolean areEquals(ChipInterface chip1, ChipInterface chip2);
     }
+
+    public void showFilterableList() {
+        if (mFilterableListView != null) {
+            //wanted to show every contacts
+            mFilterableListView.filterList(" ");
+        }
+    }
 }

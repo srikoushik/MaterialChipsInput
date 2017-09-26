@@ -125,5 +125,6 @@ public class ContactListActivity extends AppCompatActivity {
 
         // pass contact list to chips input
         mChipsInput.setFilterableList(mContactList);
+        mChipsInput.showFilterableList();
     }
 }
