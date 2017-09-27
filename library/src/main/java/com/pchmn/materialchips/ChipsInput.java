@@ -221,7 +221,17 @@ public class ChipsInput extends ScrollViewMaxHeight {
         return editText;
     }
 
-    public DetailedChipView getDetailedChipView(ChipInterface chip) {
+    public ChipsInputEditText getOriginalEditText() {
+        if (mChipsAdapter != null) {
+            return mChipsAdapter.getmEditText();
+        }
+
+        return getEditText();
+
+    }
+
+
+        public DetailedChipView getDetailedChipView(ChipInterface chip) {
         return new DetailedChipView.Builder(mContext)
                 .chip(chip)
                 .textColor(mChipDetailedTextColor)
