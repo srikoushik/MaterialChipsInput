@@ -40,6 +40,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private String mHintLabel;
     private ChipsInputEditText mEditText;
     private RecyclerView mRecycler;
+    private boolean isSelection = false;
 
     public ChipsAdapter(Context context, ChipsInput chipsInput, RecyclerView recycler) {
         mContext = context;
@@ -157,6 +158,9 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mChipsInput.onTextChanged(s);
+                if (isSelection) {
+                    mChipsInput.onSelectionDone();
+                }
             }
 
             @Override
@@ -282,8 +286,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mChipsInput.onChipAdded(chip, mChipList.size());
             // hide hint
             mEditText.setHint(null);
+            isSelection = true;
             // reset text
             mEditText.setText(null);
+            isSelection = false;
             // refresh data
             notifyItemInserted(mChipList.size());
         }

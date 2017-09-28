@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager;
 import com.pchmn.materialchips.adapter.ChipsAdapter;
+import com.pchmn.materialchips.adapter.SelectionListener;
 import com.pchmn.materialchips.model.Chip;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.ActivityUtil;
@@ -66,7 +67,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
     private FilterableListView mFilterableListView;
     // chip validator
     private ChipValidator mChipValidator;
-
+    private SelectionListener mSelectionListener;
     public ChipsInput(Context context) {
         super(context);
         mContext = context;
@@ -380,5 +381,15 @@ public class ChipsInput extends ScrollViewMaxHeight {
             //wanted to show every contacts
             mFilterableListView.filterList(" ");
         }
+    }
+
+    public void onSelectionDone() {
+        if (mSelectionListener != null) {
+            mSelectionListener.onSelectionDone();
+        }
+    }
+
+    public void addSelectionListener(SelectionListener listener) {
+        this.mSelectionListener = listener;
     }
 }
